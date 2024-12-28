@@ -1,0 +1,37 @@
+{
+  "all-notes": [
+    {
+      "id": "b6fd",
+      "title": "sffs",
+      "content": "dsfdsf",
+      "tags": [
+        "res",
+        "fgd",
+        "oo"
+      ],
+      "archived": false,
+      "createdAt": "2024-12-28T08:25:00.552Z",
+      "updatedAt": "2024-12-28T08:43:22.843Z"
+    },
+    {
+      "id": "92df",
+      "title": "rff",
+      "content": "dfdf",
+      "tags": [
+        "rrff"
+      ],
+      "archived": false,
+      "createdAt": "2024-12-28T08:25:13.429Z"
+    },
+    {
+      "id": "3789",
+      "title": "fsf",
+      "content": "fdg",
+      "tags": [
+        "g"
+      ],
+      "archived": false,
+      "createdAt": "2024-12-28T08:33:43.053Z"
+    }
+  ]
+}
