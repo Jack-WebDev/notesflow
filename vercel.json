@@ -1,0 +1,7 @@
+{
+    "version": 2,
+    "rewrites": [
+      { "source": "/api/json-server/:path*", "destination": "/api/json-server/route.ts" }
+    ]
+  }
+  
