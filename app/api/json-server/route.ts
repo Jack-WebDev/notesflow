@@ -1,24 +1,27 @@
-import { NextRequest, NextResponse } from "next/server";
-
+import { NextRequest } from "next/server";
 import jsonServer from "json-server";
 import path from "path";
 
 const server = jsonServer.create();
-const middlewares = jsonServer.defaults();
 const router = jsonServer.router(path.join(process.cwd(), "db.json"));
+const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
 server.use(router);
 
-export const config = {
-  api: {
-    bodyParser: false,
-    externalResolver: true,
-  },
-};
+export const runtime = "nodejs";
 
-const handler = (req: NextRequest, res: NextResponse) => {
-  server.emit("request", req, res);
-};
+export default async function handler(req: NextRequest) {
+  const { method } = req;
 
-export default handler;
+  return new Promise((resolve, reject) => {
+    const http = require("http");
+    const reqNode = new http.IncomingMessage(req.body);
+    const resNode = new http.ServerResponse(reqNode);
+
+    resNode.on("finish", () => resolve(resNode));
+    resNode.on("error", reject);
+
+    server.emit("request", reqNode, resNode);
+  });
+}
